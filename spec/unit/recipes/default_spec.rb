@@ -27,7 +27,6 @@ describe 'node::default' do
     it 'starts the nginx service' do
       expect(chef_run).to start_service 'nginx'
     end
-
     it 'should install nodejs from a recipe' do
       expect(chef_run).to include_recipe("nodejs")
     end
