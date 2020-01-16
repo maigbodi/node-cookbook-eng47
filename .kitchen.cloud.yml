@@ -9,6 +9,15 @@ provisioner:
   # For example:
   #   always_update_cookbooks: <%= !ENV['CI'] %>
   always_update_cookbooks: true
+  region: eu-west-1
+  require_chef_omnibus: true
+  instance_type: t2.micro
+  subnet_id: subnet-0e9b6138ff1ce18f2
+  aws_ssh_key_id: DevOpsStudents2020
+  associate_public_ip: true
+  
+transport:
+  ssh_key: ~/.ssh/DevOpsStudents2020.pe  
 
 verifier:
   name: inspec
@@ -21,7 +30,7 @@ platforms:
 suites:
   - name: default
     run_list:
-      - recipe[mongo::default]
+      - recipe[node::default]
     verifier:
       inspec_tests:
         - test/integration/default
