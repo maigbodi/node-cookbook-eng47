@@ -17,7 +17,7 @@ provisioner:
   associate_public_ip: true
   
 transport:
-  ssh_key: ~/.ssh/DevOpsStudents2020.pe  
+  ssh_key: ~/.ssh/DevOpsStudents2020.pem
 
 verifier:
   name: inspec
