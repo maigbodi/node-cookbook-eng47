@@ -16,7 +16,9 @@ describe 'node::default' do
       runner = ChefSpec::SoloRunner.new(platform: 'ubuntu', version: '18.04')
       runner.converge(described_recipe)
     end
-
+    it 'converges successfully' do
+      expect { chef_run }.to_not raise_error
+    end
   
     it 'runs apt get update' do
       expect(chef_run).to update_apt_update 'update_sources'
