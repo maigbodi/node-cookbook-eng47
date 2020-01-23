@@ -8,9 +8,10 @@ name 'node'
 
 # Where to find external cookbooks:
 default_source :supermarket
-
+cookbook 'nodejs', '~> 6.0.0', :supermarket
 # run_list: chef-client will run these recipes in the order specified.
 run_list 'node::default'
 
 # Specify a custom source for a single cookbook:
+
 cookbook 'node', path: '.'
