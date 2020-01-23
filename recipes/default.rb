@@ -30,11 +30,12 @@ link '/etc/nginx/sites-enabled/default' do
   action :delete
 end
 
-node.default['nodejs']['version'] = '12.14.1'
-node.default['nodejs']['binary']['url'] = 'https://nodejs.org/dist/v12.14.1/node-v12.14.1.tar.xz'
-node.default['nodejs']['binary']['checksum'] = '6cd28a5e6340f596aec8dbfd6720f444f011e6b9018622290a60dbd17f9baff6'
- 
-include_recipe 'nodejs::nodejs_from_binary'
+execute 'add nodejs repo' do
+  command 'curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -'
+end
+execute 'install nodejs' do
+  command 'sudo apt-get install -y nodejs'
+end
 
 
-nodejs_npm 'pm2'
+
