@@ -2,13 +2,8 @@ driver:
   name: ec2
   region: eu-west-1
   require_chef_omnibus: true
-  chef_omnibus_url: https://www.chef.io/chef/install.sh
   instance_type: t2.micro
   # This is the subnet id for DevOpsStudents
-  subnet_id: subnet-0e9b6138ff1ce18f2
-  # Name of the DevOpsStudents key
-  aws_ssh_key_id: Engineering47TestKeyLondon
-  associate_public_ip: true
 
 # transport:
 #    # Use our key from machine to access the test machine
